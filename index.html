@@ -5,8 +5,168 @@
 .modalbg{display:none;position:fixed;inset:0;background:#091b17a8;z-index:20;align-items:center;justify-content:center;padding:16px}.modalbg.open{display:flex}.modal{background:#fff;border-radius:16px;width:min(800px,100%);max-height:92vh;overflow:auto;box-shadow:0 24px 80px #0004}.modalhead{padding:15px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.modalhead h3{margin:0;font-size:16px}.close{border:0;border-radius:50%;width:32px;height:32px;font-size:21px}.controls{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:12px 16px}.controls button,.controls select{border:1px solid var(--line);background:#fff;border-radius:7px;padding:8px}.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;padding:0 16px 12px}.weekday{text-align:center;background:#f4f6f2;border-radius:5px;padding:8px 0;font-size:10px;font-weight:bold}.day{min-height:58px;text-align:left;border:1px solid #e8ebe5;background:#fff;border-radius:7px;padding:5px;font-size:11px}.day:hover{border-color:var(--g2);background:#f1f7f2}.blank{background:#fafaf8;border-color:transparent}.dots{display:flex;gap:3px;margin-top:8px}.dot{width:6px;height:6px;border-radius:50%;background:#4c8c69}.dot.blue{background:#3179b5}.dot.purple{background:#8d64c6}.weekend{background:#fafaf8}.holiday{background:#fff2f0;border-color:#f0d0ca}.legendline{display:flex;gap:12px;flex-wrap:wrap;padding:0 18px 12px;font-size:10px;color:var(--muted)}.legendline i{width:7px;height:7px;display:inline-block;border-radius:50%;margin-right:4px}.calfoot{margin:0 16px 15px;padding:12px;background:#f7f4ec;border-radius:10px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:11px}.calfoot p{margin:4px 0 0;color:var(--muted)}.weekform{display:none;border:1px solid var(--line);border-radius:10px;padding:14px;margin:0 16px 16px}.weekform.show{display:block}.fields{display:grid;grid-template-columns:1fr 1fr;gap:9px}.fields label{display:flex;flex-direction:column;gap:5px;font-size:11px}.fields input,.fields textarea{border:1px solid #dfe4dc;border-radius:7px;padding:8px;font:inherit}.fields textarea{min-height:65px}.wide{grid-column:1/-1}.toast{display:none;position:fixed;bottom:20px;right:20px;background:var(--g);color:white;padding:12px 16px;border-radius:9px;z-index:30}.toast.show{display:block}
 @media(max-width:1200px){.top{grid-template-columns:1fr 1fr}.top>article:last-child{grid-column:1/-1}.mid{grid-template-columns:1fr}.bottom{grid-template-columns:1fr 1fr}.bottom>article:last-child{grid-column:1/-1}.groups{grid-template-columns:repeat(2,1fr)}.tag{display:none}}
 @media(max-width:720px){.app{grid-template-columns:1fr}.nav{display:grid;grid-template-columns:1fr 1fr}.label{grid-column:1/-1}.header{height:auto;align-items:flex-start;padding:12px}.header h1{font-size:15px}.header p{font-size:9px}.user{font-size:0}.user .avatar{font-size:12px}.content{padding:11px}.welcome{display:block}.quote{margin-top:10px}.strip{margin-top:10px;gap:8px;flex-wrap:wrap}.top,.bottom{grid-template-columns:1fr}.top>article:last-child,.bottom>article:last-child{grid-column:auto}.progress{grid-template-columns:115px 1fr;gap:7px}.ring{width:110px;height:110px}.ring:before{inset:10px}.ring b{font-size:16px}.ring em{font-size:14px}.groups{grid-template-columns:1fr 1fr}.calgrid{padding:0 7px 10px;gap:2px}.day{min-height:44px;padding:3px}.weekday{font-size:9px}.calfoot{margin:0 8px 12px;display:block}.fields{grid-template-columns:1fr}.wide{grid-column:auto}}
+
+/* ===== Dashboard refinement v2: cleaner hierarchy, softer surfaces, better mobile UX ===== */
+:root{
+  --g:#123b32;--g2:#28634e;--cream:#faf9f5;--line:#e4e9e2;
+  --muted:#687770;--gold:#c8aa62;--ink:#20332d;
+}
+body{background:#f2f4ef;color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif;letter-spacing:.005em}
+.app{grid-template-columns:252px minmax(0,1fr)}
+.side{padding:20px 14px;background:linear-gradient(155deg,#0b2824 0%,#123b32 52%,#1b5140 100%);box-shadow:8px 0 28px #102d2510}
+.brand{padding:8px 6px 20px;gap:12px}
+.logo{width:54px;height:54px;box-shadow:0 0 0 5px #ffffff0a}
+.brand b{font-family:Georgia,serif;font-size:13px;letter-spacing:.02em}
+.nav{gap:5px;margin-top:16px}
+.nav a,.nav button{padding:11px 12px;border-radius:10px;font-size:12px;transition:background .18s,transform .18s}
+.nav a:hover,.nav button:hover{transform:translateX(2px);background:#ffffff18}
+.nav .active{background:linear-gradient(90deg,#ffffff20,#ffffff0a);box-shadow:inset 3px 0 var(--gold)}
+.label{padding-top:18px;letter-spacing:.12em;font-size:9px}
+.sidefoot{line-height:1.7;margin-top:24px}
+.header{min-height:106px;height:auto;padding:18px 28px;border-bottom:3px solid var(--gold);background-color:#fdfdf9;background-image:linear-gradient(90deg,#ffffffef 0%,#ffffffd9 54%,#f7f2e6d9 100%),url('assets/header-campus.jpg');background-position:center;background-size:cover}
+.header h1{font-size:22px;letter-spacing:-.025em;color:#183b31}
+.header p{font-size:12px;line-height:1.6}
+.tag{font-size:20px;letter-spacing:.02em}
+.user{border:1px solid #e7e9e2;box-shadow:0 5px 18px #20332d0b;padding:8px 14px 8px 8px}
+.avatar{background:linear-gradient(145deg,#e7efe6,#cddfd1);border:1px solid #d3e0d4}
+.content{padding:25px 26px 30px;max-width:1780px}
+.welcome{margin-bottom:20px;align-items:flex-end}
+.welcome h2{font-size:25px;letter-spacing:-.035em;color:#718078}
+.welcome h2 strong{color:#183b31}
+.welcome p{font-size:12px;line-height:1.7}
+.quote{background:linear-gradient(135deg,#f8eee3,#f5e6d5);border:1px solid #eadac5;border-radius:12px;padding:13px 15px;color:#74572b;box-shadow:0 4px 14px #6b4c1709}
+.strip,.card{border:1px solid #e4e9e2;border-radius:15px;box-shadow:0 7px 25px #173a2a08}
+.strip{padding:15px 17px;background:linear-gradient(110deg,#fff,#fbfcf8);gap:18px}
+.strip strong{font-size:18px;letter-spacing:-.025em;color:#183b31}
+.strip small{font-size:11px;line-height:1.5}
+.sep{height:38px;border-color:#e7ebe4}
+.top{gap:15px}
+.card{padding:18px}
+.title{font-size:11px;letter-spacing:.075em;color:#52655b;margin-bottom:16px}
+.progress{grid-template-columns:145px minmax(0,1fr);gap:18px}
+.ring{width:142px;height:142px;box-shadow:inset 0 0 0 1px #ffffff80}
+.ring:before{inset:12px}
+.ring b{font-size:25px;letter-spacing:-.04em;color:#193c31}
+.ring em{font-size:14px;color:#63816c}
+.bars{gap:12px}
+.bar label{font-size:11px;color:#44564c}
+.track{height:9px;background:#edf0e9}
+.fill{background:linear-gradient(90deg,#5d9974,#93c39a)}
+.gold{background:linear-gradient(90deg,#c9a65e,#ead29a)}
+.blue{background:linear-gradient(90deg,#5793b9,#9ec9e0)}
+.purple{background:linear-gradient(90deg,#8a6bb7,#c0a9df)}
+.pink{background:linear-gradient(90deg,#c86b87,#e9a7b8)}
+.value{font-size:11px;font-weight:700;color:#4b5e52}
+.client{border:1px solid #e0eae0;background:linear-gradient(135deg,#edf5ef,#f7faf6);padding:14px;border-radius:11px}
+.client .num{font-size:29px;letter-spacing:-.04em}
+.minis{gap:9px}
+.mini{border:1px solid #e8ece5;background:#f9faf7;border-radius:10px;padding:12px}
+.mini b{font-size:23px;color:#244b3c}
+.info{background:#f0f6fa;border:1px solid #e1edf4;line-height:1.6;padding:11px}
+.event{grid-template-columns:46px minmax(0,1fr);gap:11px;padding:11px 0;border-bottom:1px solid #edf0ea}
+.date{background:#edf5ef;border:1px solid #e0ebe1;border-radius:10px;padding:8px 2px}
+.event b{font-size:12px;line-height:1.45;color:#294439}
+.event small{font-size:11px;line-height:1.6;display:block}
+.mid{gap:15px;margin-top:15px}
+.groups{gap:10px}
+.group{border-radius:11px;padding:13px;line-height:1.9}
+.group h4{font-size:12px;line-height:1.55}
+.group ul{padding-left:16px}
+.group li{padding-left:1px}
+.other{border-radius:11px;padding:14px;line-height:1.7;background:linear-gradient(135deg,#f6f1fb,#fbf9fd)}
+.other p{color:#5f5c69;line-height:1.7}
+.other button,.primary{padding:10px 15px;font-size:11px;letter-spacing:.01em;box-shadow:0 4px 10px #123b321c;cursor:pointer;transition:transform .18s,box-shadow .18s}
+.other button:hover,.primary:hover{transform:translateY(-1px);box-shadow:0 7px 16px #123b3226}
+.bottom{gap:15px;margin-top:15px}
+.chart{border-radius:8px 8px 0 0;padding-top:6px}
+.donut{box-shadow:0 0 0 1px #edf0e9}
+.legend{color:#58695f;line-height:2.15}
+.links{gap:8px}
+.links a{padding:11px 12px;border-radius:9px;background:#fff;font-size:11px;line-height:1.45;transition:border-color .18s,background .18s,transform .18s}
+.links a:hover{border-color:#9dbba4;background:#f6faf5;transform:translateX(2px)}
+.note{margin:18px 0 0;padding:12px;border-top:1px solid #e1e7df;line-height:1.6}
+.modal{border:1px solid #e1e8df;box-shadow:0 28px 90px #0005}
+.modalhead{padding:17px 20px;background:#fbfcf9;position:sticky;top:0;z-index:2}
+.modalhead h3{color:#1c4435}
+.close{cursor:pointer;background:#f0f3ee}
+.close:hover{background:#e5ebe3}
+.controls{padding:14px 18px}
+.controls button,.controls select{cursor:pointer;border-radius:9px;padding:9px 11px}
+.controls button:hover{background:#eef5ef;border-color:#b9d0bd}
+.day{cursor:pointer;transition:background .15s,border-color .15s;min-height:62px}
+.day b{font-size:12px}
+.day:hover{box-shadow:0 3px 10px #123b3210}
+.weekform{background:#fcfdfb}
+.fields input:focus,.fields textarea:focus{outline:2px solid #a8c8ad;border-color:#5b8c68}
+@media(max-width:1200px){
+ .app{grid-template-columns:220px minmax(0,1fr)}
+ .content{padding:20px}
+ .top{grid-template-columns:1fr 1fr}
+ .top>article:last-child{grid-column:1/-1}
+ .progress{grid-template-columns:130px minmax(0,1fr)}
+ .ring{width:128px;height:128px}
+}
+@media(max-width:720px){
+ .app{grid-template-columns:minmax(0,1fr)}
+ .side{padding:13px 12px}
+ .brand{padding:4px 3px 12px}
+ .logo{width:44px;height:44px}
+ .nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin-top:10px}
+ .nav a,.nav button{font-size:11px;padding:10px}
+ .label{padding:12px 8px 2px}
+ .sidefoot{margin-top:12px;padding:9px 7px}
+ .header{padding:14px 15px;min-height:88px;gap:8px}
+ .header h1{font-size:16px;line-height:1.35}
+ .header p{font-size:10px}
+ .tag{display:none}
+ .user{padding:5px;background:#ffffffdc}
+ .user .avatar{width:32px;height:32px}
+ .content{padding:14px 11px 22px}
+ .welcome{align-items:flex-start;flex-direction:column;margin-bottom:13px}
+ .welcome h2{font-size:22px}
+ .quote{max-width:none;width:100%;padding:10px 12px}
+ .strip{gap:10px;padding:12px;flex-wrap:wrap}
+ .strip strong{font-size:16px}
+ .sep{display:none}
+ .top,.bottom{grid-template-columns:minmax(0,1fr);gap:11px}
+ .top>article:last-child,.bottom>article:last-child{grid-column:auto}
+ .card{padding:14px;border-radius:13px}
+ .progress{grid-template-columns:112px minmax(0,1fr);gap:12px}
+ .ring{width:110px;height:110px}
+ .ring:before{inset:10px}
+ .ring b{font-size:21px}
+ .ring em{font-size:12px}
+ .bar label{font-size:10px}
+ .groups{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .group{padding:10px;font-size:10px}
+ .group h4{font-size:10px}
+ .mid{gap:11px;margin-top:11px}
+ .bottom{margin-top:11px}
+ .donutrow{gap:15px;flex-wrap:wrap}
+ .donut{width:125px;height:125px}
+ .legend{font-size:10px}
+ .calgrid{gap:3px;padding:0 9px 10px}
+ .weekday{font-size:9px;padding:7px 0}
+ .day{min-height:47px;padding:4px;font-size:10px}
+ .controls{padding:10px;gap:5px;flex-wrap:wrap}
+ .controls select{max-width:42%;font-size:11px}
+ .calfoot{margin:0 9px 12px;padding:10px;align-items:flex-start;flex-direction:column}
+ .weekform{margin:0 9px 12px;padding:11px}
+ .fields{grid-template-columns:minmax(0,1fr)}
+ .wide{grid-column:auto}
+ .modalbg{padding:7px}
+ .modal{max-height:96vh;border-radius:13px}
+}
+
+
+/* Official UPSI identity assets */
+.logo{overflow:hidden;border-radius:12px;padding:3px;background:#fff;border:1px solid #d9d3b6}
+.logo img{width:100%;height:100%;object-fit:contain;display:block}
+.header{background-image:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.88) 48%,rgba(250,247,239,.60) 100%),url('assets/header-campus.jpg');background-position:center 48%;background-size:cover}
+@media(max-width:720px){.logo{border-radius:10px;padding:2px}.brand b{font-size:11px}}
+
 </style></head><body>
-<div class="app"><aside class="side"><div class="brand"><div class="logo">UPSI</div><div><b>UNIVERSITI PENDIDIKAN SULTAN IDRIS</b><small>Sistem Pengurusan Internship Kaunseling</small></div></div>
+<div class="app"><aside class="side"><div class="brand"><div class="logo"><img src="assets/logo-upsi.png" alt="Logo rasmi Universiti Pendidikan Sultan Idris"></div><div><b>UNIVERSITI PENDIDIKAN SULTAN IDRIS</b><small>Sistem Pengurusan Internship Kaunseling</small></div></div>
 <nav class="nav"><a class="active" href="#dashboard">⌂ &nbsp; Dashboard</a><a href="#profil">▣ &nbsp; Profil Internship</a><button id="openCalendar">▦ &nbsp; Kalendar & Buku Log</button><a href="#klien">♙ &nbsp; Rekod Klien</a><div class="label">Kumpulan A · Kaunseling</div><a class="sub" href="#individu">♧ Individu</a><a class="sub" href="#kelompok">♧ Kelompok</a><a class="sub" href="#borangA">▤ Borang Berkaitan</a><div class="label">Kumpulan B · Konsultasi dan Rujukan</div><a class="sub" href="#konsultasi">▤ Rekod Konsultasi</a><a class="sub" href="#rujukan">▤ Rekod Rujukan</a><div class="label">Kumpulan C · CPD</div><a class="sub" href="#cpd">▤ Rekod CPD</a><div class="label">Kumpulan D · Program & Aktiviti Sokongan</div><a class="sub" href="#program">▤ Program (Kertas Kerja)</a><a class="sub" href="#bimbingan">▤ Bimbingan</a><a class="sub" href="#ujian">▤ Ujian Psikologi</a><a class="sub" href="#rekod">▤ Pengurusan Rekod</a><a href="#lain" style="background:#765f2b;border:1px solid #d6bd72">▰ &nbsp; Lain-lain Borang</a><a href="#laporan">▥ &nbsp; Laporan</a><a href="#muat-turun">⇩ &nbsp; Muat Turun PDF</a><a href="#tetapan">⚙ &nbsp; Tetapan</a></nav><div class="sidefoot">UNIVERSITI PENDIDIKAN SULTAN IDRIS<br>Prototaip · Data contoh sahaja</div></aside>
 <main class="main" id="dashboard"><header class="header"><div><h1>Sistem Pengurusan<br>Internship Kaunseling</h1><p>Jabatan Psikologi dan Kaunseling · Fakulti Pembangunan Manusia, UPSI</p></div><div class="tag">Ilmu · Suluh · Bakti</div><div class="user"><div class="avatar">NS</div><div><b>NUR SHUHADA BINTI SUNTONG</b><br><small>Kaunselor Pelatih</small></div>⌄</div></header>
 <div class="content"><section class="welcome"><div><h2>Selamat Datang,<br><strong>NUR SHUHADA BINTI SUNTONG</strong></h2><p>Kaunselor Pelatih | Jabatan Psikologi dan Kaunseling, FPM, UPSI</p></div><div class="quote">“Setiap sesi, setiap interaksi, setiap pengalaman adalah sebahagian daripada perjalanan menjadi kaunselor yang lebih baik.”</div><div class="strip"><span style="font-size:25px">▦</span><div><small>Tempoh Internship</small><strong>28 Minggu</strong></div><div class="sep"></div><div><small>Tarikh Mula</small><strong>25 Okt 2026</strong></div><div class="sep"></div><div><small>Sasaran Tamat</small><strong>25 Apr 2027</strong></div></div></section>
